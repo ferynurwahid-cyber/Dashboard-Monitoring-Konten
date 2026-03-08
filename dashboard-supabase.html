@@ -384,9 +384,9 @@ function App(){
     </div>
 
     {/* DRAWER */}
-    {drawer&&<div style={{position:"fixed",inset:0,zIndex:500}}>
+    <div style={{position:"fixed",inset:0,zIndex:500,display:drawer?"block":"none"}}>
       <div onClick={()=>setDrawer(false)} style={{position:"absolute",inset:0,background:"rgba(15,30,55,0.4)",backdropFilter:"blur(2px)"}}/>
-      <div style={{position:"absolute",top:0,right:0,bottom:0,width:400,background:"#fff",display:"flex",flexDirection:"column",animation:"slideIn 0.28s cubic-bezier(0.4,0,0.2,1)",boxShadow:"-8px 0 40px rgba(27,94,166,0.18)"}}>
+      <div style={{position:"absolute",top:0,right:0,bottom:0,width:400,background:"#fff",display:"flex",flexDirection:"column",animation:drawer?"slideIn 0.28s cubic-bezier(0.4,0,0.2,1)":"",boxShadow:"-8px 0 40px rgba(27,94,166,0.18)"}}>
         <div style={{background:"#1b5ea6",padding:"16px 20px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
           <div style={{fontSize:15,fontWeight:600,color:"#fff"}}>✏️ Tambah Konten Baru</div>
           <button onClick={()=>setDrawer(false)} style={{background:"rgba(255,255,255,0.15)",border:"none",borderRadius:6,color:"#fff",width:28,height:28,fontSize:16,display:"flex",alignItems:"center",justifyContent:"center"}}>✕</button>
@@ -415,7 +415,7 @@ function App(){
           </button>
         </div>
       </div>
-    </div>}
+    </div>
 
     {/* MODAL */}
     {modal&&<div onClick={()=>setModal(null)} style={{position:"fixed",inset:0,background:"rgba(15,30,55,0.45)",zIndex:999,display:"flex",alignItems:"center",justifyContent:"center",backdropFilter:"blur(3px)"}}>
